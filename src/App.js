@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./App.css";
+import Candidates from "./components/candidates";
+import Questions from "./components/questions";
+import CandidateDetails from "./components/candidateDetails";
+import { Route, Redirect, Switch } from "react-router-dom";
+import Comment from "./components/comment";
+class APP extends Component {
+  state = {};
+  render() {
+    return (
+      <div className="App">
+        {/* <Candidates />
+        <Questions /> */}
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <Switch>
+          <Route path="/" exact component={Candidates} />
+          <Route path="/CandidateDetails" exact component={CandidateDetails} />
+        </Switch>
+
+        <Link className="nav-link " to="/CandidateDetails"></Link>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default APP;
